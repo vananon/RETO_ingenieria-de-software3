@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+header h1 {
+  font: var(--font-h1);
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+header p {
+  font: var(--font-small);
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-label {
+  font: var(--font-caption);
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.forgot {
+  display: flex;
+  justify-content: flex-end;
+  margin: -4px 0 20px;
+}
+
+.forgot a,
+.switch a {
+  font: var(--font-caption);
+  color: var(--accent-default);
+}
+
+.switch {
+  margin-top: 20px;
+  text-align: center;
+  font: var(--font-caption);
+  font-weight: 400;
+  color: var(--text-muted);
+}

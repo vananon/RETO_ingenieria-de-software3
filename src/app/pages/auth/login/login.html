@@ -1,0 +1,45 @@
+<section class="auth-card">
+  <header>
+    <h1>Inicia sesión</h1>
+    <p>Bienvenido de nuevo. Ingresa para comprar tus entradas.</p>
+  </header>
+
+  <form [formGroup]="form" class="auth-form">
+    <label class="field-label" for="login-correo">Correo electrónico</label>
+    <mat-form-field appearance="outline" class="full-width">
+      <input matInput id="login-correo" type="email" formControlName="correo" placeholder="tu@correo.com" />
+      <mat-error>
+        @if (form.controls.correo.hasError('required')) {
+          Ingresa tu correo electrónico.
+        } @else if (form.controls.correo.hasError('email')) {
+          Ingresa un correo válido.
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <label class="field-label" for="login-contrasena">Contraseña</label>
+    <mat-form-field appearance="outline" class="full-width">
+      <input matInput id="login-contrasena" type="password" formControlName="contrasena" placeholder="••••••••" />
+      <mat-error>Ingresa tu contraseña.</mat-error>
+    </mat-form-field>
+
+    <div class="forgot">
+      <a routerLink="/login">¿Olvidaste tu contraseña?</a>
+    </div>
+
+    <button
+      mat-flat-button
+      type="submit"
+      class="btn-block"
+      routerLink="/participante/eventos"
+      [disabled]="form.invalid"
+    >
+      Iniciar sesión
+    </button>
+  </form>
+
+  <p class="switch">
+    ¿No tienes cuenta?
+    <a routerLink="/registro">Crear cuenta</a>
+  </p>
+</section>

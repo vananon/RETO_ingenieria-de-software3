@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg-base);
+}
+
+.topbar {
+  height: 72px;
+  padding: 0 var(--page-padding);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.content {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 48px var(--page-padding);
+}

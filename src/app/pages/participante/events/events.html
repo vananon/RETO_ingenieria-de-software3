@@ -1,0 +1,43 @@
+<section class="events">
+  <header class="events-header">
+    <h1>Próximos eventos</h1>
+    <p>Encuentra y reserva tus entradas.</p>
+  </header>
+
+  <form [formGroup]="form" class="filters">
+    <mat-form-field appearance="outline" class="search" subscriptSizing="dynamic">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput formControlName="busqueda" placeholder="Buscar eventos, artistas o lugares" />
+    </mat-form-field>
+
+    <mat-chip-listbox formControlName="categoria" aria-label="Categorías" class="chips">
+      @for (categoria of categorias; track categoria) {
+        <mat-chip-option [value]="categoria">{{ categoria }}</mat-chip-option>
+      }
+    </mat-chip-listbox>
+  </form>
+
+  <div class="grid">
+    @for (evento of eventos; track evento.id) {
+      <mat-card appearance="outlined" class="event-card">
+        <div class="event-image">
+          <span class="badge">{{ evento.categoria }}</span>
+        </div>
+
+        <mat-card-content class="event-body">
+          <span class="event-date">{{ evento.fecha }}</span>
+          <h2>{{ evento.nombre }}</h2>
+          <span class="event-place">{{ evento.lugar }}</span>
+        </mat-card-content>
+
+        <mat-card-actions class="event-footer">
+          <div class="price">
+            <span>Desde</span>
+            <strong>{{ evento.precio }}</strong>
+          </div>
+          <a mat-stroked-button routerLink="/participante/eventos">Ver entradas</a>
+        </mat-card-actions>
+      </mat-card>
+    }
+  </div>
+</section>

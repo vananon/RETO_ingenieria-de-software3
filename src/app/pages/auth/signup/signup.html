@@ -1,0 +1,53 @@
+<section class="auth-card">
+  <header>
+    <h1>Crea tu cuenta</h1>
+    <p>Regístrate en menos de un minuto.</p>
+  </header>
+
+  <form [formGroup]="form" class="auth-form">
+    <label class="field-label" for="signup-nombre">Nombre completo</label>
+    <mat-form-field appearance="outline" class="full-width">
+      <input matInput id="signup-nombre" formControlName="nombre" placeholder="Tu nombre" />
+      <mat-error>Ingresa tu nombre completo.</mat-error>
+    </mat-form-field>
+
+    <label class="field-label" for="signup-correo">Correo electrónico</label>
+    <mat-form-field appearance="outline" class="full-width">
+      <input matInput id="signup-correo" type="email" formControlName="correo" placeholder="tu@correo.com" />
+      <mat-error>
+        @if (form.controls.correo.hasError('required')) {
+          Ingresa tu correo electrónico.
+        } @else if (form.controls.correo.hasError('email')) {
+          Ingresa un correo válido.
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <label class="field-label" for="signup-contrasena">Contraseña</label>
+    <mat-form-field appearance="outline" class="full-width">
+      <input matInput id="signup-contrasena" type="password" formControlName="contrasena" placeholder="Mínimo 8 caracteres" />
+      <mat-error>
+        @if (form.controls.contrasena.hasError('required')) {
+          Ingresa una contraseña.
+        } @else if (form.controls.contrasena.hasError('minlength')) {
+          La contraseña debe tener mínimo 8 caracteres.
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      mat-flat-button
+      type="submit"
+      class="btn-block"
+      routerLink="/login"
+      [disabled]="form.invalid"
+    >
+      Crear cuenta
+    </button>
+  </form>
+
+  <p class="switch">
+    ¿Ya tienes cuenta?
+    <a routerLink="/login">Inicia sesión</a>
+  </p>
+</section>
